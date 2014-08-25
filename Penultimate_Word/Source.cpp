@@ -13,11 +13,20 @@ using std::ifstream;
 using std::istringstream;
 using std::getline;
 
-int main()
+int main(int argc, char *argv[])
 {
-	cout << "Please enter the path to your input file: " << endl;
 	string input_file;
-	cin >> input_file;
+
+	// Check first argument if it exists for input file, otherwise ask user
+	if (argc > 1)
+	{
+		input_file = argv[1];
+	}
+	else
+	{
+		cout << "Please enter the path to your input file: " << endl;
+		cin >> input_file;
+	}
 
 	// Open input file and check if successfully opened
 	ifstream ifs(input_file);
